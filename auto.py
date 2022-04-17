@@ -162,4 +162,8 @@ if __name__ == "__main__":
     parser.add_argument('--username', type=str, default=None)
     parser.add_argument('--password', type=str, default=None)
     args = parser.parse_args()
-    main(args.username, args.password)
+    usernames = args.username.split('#')
+    pwds = args.password.split('#')
+    for u, p in zip(usernames, pwds):
+        main(u, p)
+    # main(args.username, args.password)
